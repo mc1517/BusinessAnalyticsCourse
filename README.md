@@ -1,5 +1,5 @@
 # BusinessAnalyticsCourse
-This is a repository to organize the teaching material for a new course at Monash University, to be jointly taught by Di Cook, Rob Hyndman and Ben Souhaib. 
+This is a repository to organize the teaching material for a new course at Monash University, to be jointly taught by Di Cook, Rob Hyndman and Souhaib Ben Taieb.
 
 ### Textbook: 
 
@@ -45,13 +45,14 @@ James, Witten, Hastie, Tibshirani, An Introduction to Statistical Learning and A
 ##  Topics:
 * What is statistical learning?
 * Types of models: regression, classification, unsupervised
-* Model  assessment and selection: predictive accuracy
-* Resampling methods: boostrap, permutation, cross-validation
+* Model estimation: numerical optimization
+* Model assessment and selection: predictive accuracy
+* Resampling methods: bootstrap, permutation, cross-validation, bagging
+* Regression: splines, additive models, ridge regression, variable selection, lasso
+* High dimension, low sample size: principal components, partial least squares, regularization
 * Supervised classification: logistic regression, neural networks, trees, forests, support vector machines, ensembles
-* High dimension, low sample size: variable selection, principal components, partial least squares, ridge regression, lasso, regularization
 * Unsupervised classification: hierarchical clustering, k-means, self-organizing maps, model-based clustering
 * Cleaning, exploring and visualizing data
-* 
 
 ## Software:
 * R 
