@@ -1,12 +1,12 @@
 # BusinessAnalyticsCourse
 This is a repository to organize the teaching material for a new course at Monash University, to be jointly taught by Di Cook, Rob Hyndman and Ben Souhaib. 
 
-## Textbook: James, Witten, Hastie, Tibshirani
+### Textbook: James, Witten, Hastie, Tibshirani
           An Introduction to Statistical Learning and Applications in R
           Springer
           2013
           
-## Additional Reading: 
+### Additional Reading: 
   
   *  Xie, Yihui
         Dynamic Documents with R and knitr
@@ -44,14 +44,14 @@ This is a repository to organize the teaching material for a new course at Monas
       .... 
       
 ##  Topics:
-    * What is statistical learning?
-    * Types of models: regression, classification, unsupervised
-    * Model selection and assessment: predictive accuracy
-    * Resampling methods: boostrap, permutation, cross-validation
-    * Supervised classification: logistic regression, neural networks, trees, forests, support vector machines, ensembles
-    * High dimension, low sample size: variable selection, principal components, partial least squares, ridge regression, lasso, regularization
-    * Unsupervised classification: hierarchical clustering, k-means, self-organizing maps, model-based clustering
-    * Cleaning, exploring and visualizing data
+* What is statistical learning?
+* Types of models: regression, classification, unsupervised
+* Model selection and assessment: predictive accuracy
+* Resampling methods: boostrap, permutation, cross-validation
+* Supervised classification: logistic regression, neural networks, trees, forests, support vector machines, ensembles
+* High dimension, low sample size: variable selection, principal components, partial least squares, ridge regression, lasso, regularization
+* Unsupervised classification: hierarchical clustering, k-means, self-organizing maps, model-based clustering
+* Cleaning, exploring and visualizing data
       
         
           
