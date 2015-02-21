@@ -45,7 +45,7 @@ James, Witten, Hastie, Tibshirani, An Introduction to Statistical Learning and A
 ##  Topics:
 * What is statistical learning?
 * Types of models: regression, classification, unsupervised
-* Model selection and assessment: predictive accuracy
+* Model  assessment and selection: predictive accuracy
 * Resampling methods: boostrap, permutation, cross-validation
 * Supervised classification: logistic regression, neural networks, trees, forests, support vector machines, ensembles
 * High dimension, low sample size: variable selection, principal components, partial least squares, ridge regression, lasso, regularization
