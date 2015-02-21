@@ -1,12 +1,12 @@
 # BusinessAnalyticsCourse
 This is a repository to organize the teaching material for a new course at Monash University, to be jointly taught by Di Cook, Rob Hyndman and Ben Souhaib. 
 
-  ## Textbook: James, Witten, Hastie, Tibshirani
+## Textbook: James, Witten, Hastie, Tibshirani
           An Introduction to Statistical Learning and Applications in R
           Springer
           2013
           
-  ## Additional Reading: 
+## Additional Reading: 
   
   *  Xie, Yihui
         Dynamic Documents with R and knitr
