@@ -58,7 +58,9 @@ James, Witten, Hastie, Tibshirani, An Introduction to Statistical Learning and A
 * R 
 * Weka
       
-## Approach to teaching R? Use Rmarkdown lecture notes like http://dicook.github.io/stat585/, and this should help students get comfortable with R themselves. (Ignore the ugly web site design!)
+## Approach to teaching R? 
+
+Use Rmarkdown lecture notes like http://dicook.github.io/stat585/, and this should help students get comfortable with R themselves. (Ignore the ugly web site design!)
 
 and material at this site: http://www.stat.iastate.edu/ccgs/short-courses/
         
