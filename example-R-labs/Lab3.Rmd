@@ -1,0 +1,179 @@
+Lab 3 Plotting Multivariate Data
+========================================================
+
+Due: Wednesday, Sep 10, 2013, in class.
+Hand in one solution per group.
+
+Group members: __________________________
+
+# New setup!!!
+
+This time when you first start RStudio
+
+1. Using the **Project** menu, select **New Project**
+2. If you already have a **Stat407** directory, choose **Existing Directory**; otherwise select **Create New Directory**, and follow through to make the directory name. Make sure you KNOW where this directory is on your computer. (You will only ever need to do steps 1, 2 ONCE.)
+3. Download the data and Lab3.Rmd files into this directory. Open them in your RStudio session. All future files will be downloaded into this directory. And for your 407 labs, the first thing that you will do will be to **Open** the Stat407 project. 
+
+If you do this, then your markdown will knit and you can run the code line by line in the command window, without having to set up anything else.
+
+(You can edit this file to make your solution for the homework. Remove any superfluous material, to make a short, to-the-point document.)
+
+# Purpose
+
+- To learn how to produce plots of multivariate data, both static and interactive.
+- Practice describing the structure observed in the multivariate plots.
+
+# Data
+
+### Music
+
+The music data, music-plusnew-sub.csv. The data has 5 quantitative variables, where first two columns (Artist, Type)
+describe the music piece. The raw data are time series for each music clip. On each time series the average amplitude, variance of amplitude, maximum amplitude, and two variables calculated on the spectral decomposition are calculated. The tracks are
+typed as either Rock, Classical or New Wave. And there are 5 tracks that are not identified.
+
+```{r readmusic}
+music <- read.csv("music-plusnew-sub.csv", row.names=1, stringsAsFactors=FALSE)
+dim(music)
+colnames(music)
+head(music)
+summary(music)
+table(music$Type)
+table(music$Artist)
+```
+
+### Bodyfat
+
+The body fat data bodyfat.csv contains various measurements on 252 (normal) males.
+
+```{r readbodyfat}
+bodyfat <- read.csv("bodyfat.csv")
+dim(bodyfat)
+colnames(bodyfat)
+head(bodyfat)
+```
+
+### PISA
+
+Data set studies in the first lab on test scores for 15 year olds. Only the USA measurements are examined. These are the scores for the different types of math skills. 
+
+```{r readpisa}
+pisamath <- read.csv("pisamathmeans.csv")
+dim(pisamath)
+summary(pisamath)
+```
+
+### Challenge data set
+
+The clusters-unknown.csv data has simulated data with number of known, but unrevealed, clusters in it. It is available from  http://ggobi.org/book/data/clusters-unknown.csv.
+
+```{r readclusters}
+cl <- read.csv("http://ggobi.org/book/data/clusters-unknown.csv")
+dim(cl)
+head(cl)
+```
+
+# Software
+
+The ggplot2 package in R, the GGally package and ggobi. The main web page for ggplot2 is http://had.co.nz/ggplot2, but this page http://www.cookbook-r.com/Graphs/ has really good practical examples. Only the man pages exist for help for the GGally package. For ggobi look at all the documentation at http://www.ggobi.org.
+
+```{r loadlibs}
+library(ggplot2)
+library(GGally)
+```
+
+# Exercise 1 Music clips data: Using ggplot2.
+
+```{r musicplots, fig.width=7, fig.height=7}
+table(music$Type)
+music.sub <- subset(music, Type == "Rock" | Type == "Classical")
+qplot(LAve, data=music.sub, geom="histogram") + facet_wrap(~Type, ncol=1)
+qplot(LVar, LAve, data=music.sub, color=Type, size=I(5), alpha=I(0.5)) + theme(aspect.ratio=1)
+```
+
+1. Subset the data so that only the major music types (Rock and Classical) are present. (Nothing to hand in.)
+2. Make histograms of LAve facetted by Type. Set the binwidth to units of 10. How does the average value vary by type of music?
+3. Make a scatterplot of LVar vs LAve, with points colored by the
+  type of music. Explain how the two major groups (Rock and Classical) differ.
+
+# Exercise 2 Body fat data: Using GGally.
+
+```{r plotbf, fig.width=8, fig.height=8}
+ggpairs(bodyfat[,1:4])
+bf.sub <- subset(bodyfat, Heightinches > 60 & Weightlbs < 300)
+ggpairs(bf.sub[,1:4])
+```
+
+```{r plotbf2, fig.width=12, fig.height=8}
+ggparcoord(bf.sub, 5:14)
+summary(bf.sub$AnkleCircm)
+bf.sub[bf.sub$AnkleCircm > 30,]
+bf.sub2 <- subset(bf.sub, AnkleCircm < 30)
+ggparcoord(bf.sub2, 5:14)
+```
+
+1. Make a scatterplot matrix of the first four variables, \% Body Fat, Age, Weight and Height. There's a problem with the data. What is it?
+2. Fix the problem with the data and remake the scatterplot matrix. Explain the association between the variables.
+3. Make a parallel coordinate plot of the last 10 variables, the circumference variables. There are some outliers in these measurements. Explain the ones that you see. 
+4. Remove the outliers and remake the parallel coordinate plot. Describe the structure of the data.
+
+# Exercise 3 PISA Maths scores
+
+```{r plotpisa, fig.width=12, fig.height=12}
+pisamath <- subset(pisamath, !is.na(acc))
+summary(pisamath)
+ggpairs(pisamath, colour="Gender", alpha=I(0.5))
+```
+
+1. How many missing values for variable acc? Remove the missing values in the data.
+2. Make a scatterplot matrix of the variables, with points coloured by Gender. Describe the association between the variables.
+
+# Exercise 4 Using tours in ggobi
+
+This R code will not work well with knitr, because it opens software to do interactive graphics. You should run the lines of code in the command line, and then work with the graphical user interface of ggobi to answer the questions. (WARNING: rggobi will crash your R session from time to time, so be sure to save your .Rmd file frequently.)
+
+```
+library(rggobi)
+ggobi(music.sub)
+```
+
+## How to use ggobi
+The ggobi software can be used to open a data frame from R. Then it is all menu-based to interactively change the plots to view, brush points and identify observations. 
+
+- When you start the software two windows will be created. One contains the main menu of controls, and the other is the plot of the data.
+
+!["GGobi main interface"](ggobi1.png)
+!["GGobi main plot"](ggobi2.png)
+
+- Open a scatterplot matrix by selecting this plot type from the **Display** menu. Then use the variable toggle boxes to choose the variables you want to display. (WARNING: You need to have at least three variables selected at all times, so add variables first, and then remove the variables you don't want.)
+
+!["GGobi plot menu"](ggobi3.png)
+!["GGobi variable toggle boxes"](ggobi4.png)
+!["GGobi scatterplot matrix"](ggobi7.png)
+
+- To brush points in the plot, open the Brush control panel by selecting **Brush** from the  **Interaction** menu. Then open the color selection palette by clicking on **Choose color & glyph**. You can change point colors by moving the rectangular brush around the plot window. By default the changes are **Transient**, when you move the brush off the selection they revert to the original color. You make **Persistent** changes check the box on the control panel.
+ 
+!["GGobi brush controls"](ggobi10.png)
+!["GGobi brush color/glyph choices"](ggobi9.png)
+!["GGobi brushing actions"](ggobi11.png)
+
+NOTICE ALSO, that the brush control panel can be used to set the background color of the plot. If you want to make a copy for printing you should set the background color to white or light grey, rather than black.
+
+- There is also a **Tools** menu, for doing things like log transformations of variables, imputing missing values or computing principal components (sphering):
+
+!["GGobi tools menu"](ggobi6.png)
+
+### Questions to answer
+
+1. Open the music data in ggobi. Color the types of music differently. Is it possible to completely distinguish between the types of music based on these 5 variables? 
+2. Find and name 2-3 unusual, potentially outlying, music tracks.
+3. What's strange about the Abba tracks?
+
+# Exercise 5 (EXTRA CREDIT) Cluster challenge data
+
+```
+ggobi(cl)
+```
+
+Use the brush-and-spin approach to decide how many clusters in the data.
+
+

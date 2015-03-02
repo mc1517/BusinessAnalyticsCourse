@@ -1,0 +1,228 @@
+Statistics 407 Lab 1
+========================================================
+
+### Introduction to R
+
+This material is taken from Garret Grolemund's book "Hands-On Programming with R", and it serves as a quick start on learning to use the software of data analysis. We would encourage you to get a copy of this book if you want to get started on R independently.
+
+We will be using RStudio interface. It has multiple panes in the window, open by default: one for writing and editing code, another for executing it, another for plots produced or help, and another that lists the R data objects available. It looks like this:
+
+!["RStudio Interface"](2014/RStudio.jpg)
+
+The top left pane has R code embedded in a markdown document, so that you can write code, and write explanations, simultaneously. It is the way that we will get lab reports made this semester. 
+
+Using the "Knit HTML" button we can process the document, get the R code to run and produce an html page, that looks like this:
+
+!["html page from Rmd"](2014/html.jpg)
+
+From the html, you can convert to a pdf document (recommended for labs for this class) or to a Microsoft Word document. 
+
+### Why R?
+
+- Reproducibility
+- Automation
+- Communication
+
+These three reasons make it an essential tool for analyzing data. R is a programming language. The language was initially research in the 1970s, and it has evolved to be the best (some may argue) language of data analysis. Data analysis needs to be performed on the computer, but you have a choice of using a graphical user interface or a programming language. Don't be afaid of programming! It will equip you to be a data scientist, which is very handy when you come to apply for jobs today. Using the R language 
+
+- encourages reproducibility because it allows you and others to re-create a past analysis, essential for good data science. 
+- enables automation, so that an analysis can be re-run easily if the data changes
+- enables communication because the code is just text, so can be emailed to others to read, can be googled for tracking down errors and help. 
+
+Learning a new language can be frustrating. It will take time to be fluent. This is normal. It is worth it!
+
+### Using the RStudio Interface
+
+Lines of code in the text editor window can be run one-by-one by setting the cursor to point to the line, and clicking the "Run" button. Blocks of code can be run by highlighting the lines and clicking "Run". Once you are sure that the code runs properly, you can embed it in the markdown and use "Knit HTML" to generate your document. My recommendation is to work this way, incrementally, in small chunks and build up to a full final document. 
+
+### R as a calculator
+
+
+```{r}
+1+1
+2*5
+12/4
+20-3
+100:130
+```
+
+The ":" operator means all the intergers from 100 and 130, inclusive. 
+
+If you type a command that R doesn't recognize you will get an error, eg. 
+
+`> 5 % 3`
+
+`Error: unexpected input in "5 % 3"`
+
+### Exercise 1:
+
+Write code to do the following:
+
+1. Choose any number and add 2 to it.
+2. Multiply the result by 3.
+3. Subtract 6 from the answer.
+4. Divide what you get by 3.
+
+If your code is correct, you should get the same number that you started with.
+
+### Objects
+
+R objects store data. The assignment operator, `<-` is used to name the object. It is also possible to use `=` to mean the same thing. 
+
+```{r}
+mynumbers <- 5:12
+mynumbers
+mynumbers + 2
+```
+
+Names can be almost anything, except for special characters `^, !, $, @, +, -, /, *`. It is good practice to name your objects with some meaning for what they contain, be reasonably short (less typiing). They should from common R functions, for example, don't use `data` because it is also used to load stored data from packages, or `c` because this is an R function that allows you to collect a bunch of objects together. You won't get errors by using these names but you may get confused when you come back and look at your code later. 
+
+Objects can be of different types. The object `mynumbers` is a vector of numbers. Numbers can be various types also: integer or double.
+
+```{r}
+typeof(mynumbers)
+is.numeric(mynumbers)
+is.vector(mynumbers)
+length(mynumbers)
+```
+
+Other common types of objects for data analysis are characters, logicals, factors, dates. Factors store categorical data. Dates have a special format that enables it to be treated similarly to how we use dates in real life.
+
+```{r}
+mytext <- c("hello", "class")
+typeof(mytext)
+is.numeric(mytext)
+is.character(mytext)
+length(mytext)
+mylogic <- c(TRUE, FALSE, TRUE, TRUE)
+typeof(mylogic)
+summary(mylogic)
+gender <- factor(c("male", "female", "female", "female", "male"))
+gender
+typeof(gender)
+levels(gender)
+summary(gender)
+now <- Sys.time()
+now
+typeof(now)
+class(now)
+today <- as.Date("08/26/2014", format="%m/%d/%Y")
+today
+```
+
+Attributes can be used to attach other information to an R object. You can think of this as metadata, which does not affect operations on the object but can provide useful information about it for other people. 
+
+```{r}
+attributes(mynumbers)
+attr(mynumbers, "description") <- "This is a collection of numbers"
+attributes(mynumbers)
+```
+
+These different data types can be packed together in different ways: matrices, arrays, data frames, lists. A matrix is a 2D array, with rows and columns,  much like you would have seen in linear algebra. Primarily we think of these as numeric objects. Arrays can have more dimensions. In multivariate analysis we are typically thinking of data in the form of a matrix, with samples/cases in the rows and variable values in the columns. Data frames are 2D arrays that could have multiple types of data in different columns. Lists are collections of possibly different length and different types of objects. 
+
+```{r}
+mydata <- matrix(c(140, 120, 160, 145, 125, 65, 60, 63, 66, 61), ncol=2, byrow=FALSE)
+mydata
+colnames(mydata) <- c("Weight.lbs", "Height.in")
+mydata
+dim(mydata)
+summary(mydata)
+df <- data.frame(Weight.lbs=c(140, 120, 160, 145, 125, 180, 165), Height.in=c(65, 60, 63, 66, 61, 70, 68), Gender=c(rep("Female", 5), rep("Male", 2)))
+df
+dim(df)
+summary(df)
+```
+### Matrix operations
+
+Much of multivariate analysis revolves around working with matrices. This is an area where the R language is strong. 
+
+```{r}
+mydata[,1] # Extract the first column
+mydata[1,] # Extract the first row
+mydata[1:2,] # Extract the first two rows
+df[seq(1,7,2), ] # Extract every second row
+subset(df, Gender == "Male") # Select based on value
+t(mydata) # Transpose of the matrix)
+mydata[,1] * mydata[,2]
+# Will generate an error because matrix multiplication requires rows get poured down columns, so number of elements in a row of the first matrix must match the number of elements in a column of the second matrix
+mydata %*% mydata 
+# This works, and forms the basis of calculating a variance
+mydata %*% t(mydata)
+```
+
+### Getting started with data
+
+There are various ways to read data from files. Primarily we will use `read.csv`, which expects the data to be comma delimited, and have column (variable) names in the first row. These defaults can be changes by changing the arguments to the function. We will start by pulling a data set from the ggobi web site;
+
+```{r}
+tips <- read.csv("http://www.ggobi.org/book/data/tips.csv")
+dim(tips)
+head(tips)
+summary(tips)
+# Fit a model 
+lm(tip ~ totbill, data=tips)
+# Create a new variable
+tips$rate <- tips$tip / tips$totbill 
+```
+
+### Exercise 2 
+
+- How many cases in the tips data?
+- How many variables?
+- What are the types of the variables? (eg, integer, factor, ...)
+- What days of the week were data on tips collected?
+
+```{r fig.width=5, fig.height=5}
+# Make some plots
+library(ggplot2)
+qplot(totbill, tip, data=tips)
+qplot(totbill, tip, data=tips, geom=c("point", "smooth"), method="lm", se=F)
+qplot(rate, data=tips, geom="histogram")
+qplot(rate, data=tips, geom="histogram", binwidth=0.1)
+qplot(tip, totbill, data=tips, geom=c("point", "smooth"), method="lm", se=F) + facet_wrap(sex~smoker)
+qplot(factor(size), rate, data=tips, geom="boxplot")
+```
+
+### Exercise 3 
+
+- Describe the relationship between tips and total bill. 
+- How does this relationship change based on gender and smoker?
+- Make a plot of tip rate by day of the week, and describe what you see.
+
+### Writing functions
+
+Functions make re-using code easier. Every function has three basi parts: name, body of code, and arguments. This function takes a die, simulates rolling it twice, and adding up the two values.
+
+```{r}
+die6side <- 1:6
+roll.sumoftwo <- function(die) {
+  rolls <- sample(die, 2, replace=TRUE)
+  sum(rolls)
+}
+roll.sumoftwo(die6side)
+roll.sumoftwo(die6side)
+```
+
+### Exercise 4
+
+- Create an 12-sided die
+- Use the function `roll.sumoftwo` to simulate rolling this twice and adding the values. 
+- Modify the function, so that it takes the number of rolls as an argument, with 2 as the default.
+
+### Getting help
+
+Help on any function is available by typiing `?functionname` at the R prompt. 
+
+### Exercise 5
+
+- Type `?mean` at the prompt to learn what this function does. What does it do?
+- How does it handle missing values?
+
+### Loading libraries
+
+A major strength of R is that it is modular. Many different people have created functionality, and made this available through libraries. These libraries can be loaded on an as needed basis. We loaded the graphics library, ggplot2, earlier using `library(ggplot2)`. This is used for libraries that have already been installed in your version of R. Many libraries are already available in R, but there are many more that have not even been installed. To install a new library you can use the `install.packages()` function or use the Tools menu to get it installed on your computer. You only need to do this once. Then it is available to load any time that you need to use it. We will rarely need to install a new package, but we will commonly load libraries.
+
+To get help on a library that has already been installed, type `help(package=ggplot2)` at the R prompt. This will give you a description of the package, and all of the functions available in that package.
+
+
+### Lastly: LOG OUT, AND TURN OFF YOUR COMPUTER. 

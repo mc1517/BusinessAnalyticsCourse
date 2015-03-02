@@ -1,0 +1,122 @@
+Lab 2 Summary Statistics for Multivariate Data
+========================================================
+
+Due: Wednesday, Sep 3, 2013, in class.
+Hand in one solution per group.
+
+### Purpose
+
+- To discuss the use of summary statistics for
+multivariate data,
+- Learn how to use software to generate
+summary statistics, 
+- Communicate what is learned by the summaries
+
+### Data
+
+The Programme for International Student Assessment (PISA) is a triennial survey conducted by the Organization for Economic Cooperation and Development (OECD) with a rotating additional emphasis on one of mathematics, reading, and science. In 2012, the additional emphasis was on mathematics. All 34 member countries of the OECD and 31 partnering countries and economies participated in the survey. This represents over 80% of the global economy. The OECD estimates that if all students could reach a level-2 proficiency in mathematics -- a level-2 proficiency means that a student can only handle the ``simplest and most obvious tasks" -- it would add a collective US$200 trillion to the world's collective GDP. 
+
+The OECD describes the PISA survey as ``the world's global metric for quality, equity and efficiency in school education" (citep[p. 3]{PISA2014a}). The goal of the PISA survey is to assess the workforce readiness of 15-year old students. Nearly 500,000 students were tested across the 65 countries and economies. Students are examined on how well they can apply the knowledge they learned in school to applications outside of school. The scores reported range between 0-1000. Additional information about the students, parents, and schools is also collected. The students completed a questionnaire providing information about themselves, their homes, their schools, and a variety of psychological views regarding factors they believe affects their performance in school. Schools principals responded to a questionnaire covering the school system and learning experiences for students. In some countries, parents completed a questionnaire requesting information about their perceptions regarding the school system, expectations for their child, and their involvement in their child's schooling.  
+
+The data was made available by the OECD as part of a data challenge for the useR! 2014 conference. Entries to the competition can be found at http://beta.icm.edu.pl/PISAcontest/. We learned many things from analyzing the data, eg (1) The gender gap in math is not universal, and girls in the middle east outperform boys, on average, (2) the gender gap in reading is universal in favor of girls, and (3) in developed countries the more TVs in the household the lower the math scores, on average, but this is not true in developing countries where number of housegold TVs is an indicator for bets test performance.
+
+This lab focuses only on the scores for US students. There are test scores for math, For each test there are 5 scores for each student, think of these as replicates, as though the student did actually take the test 5 times. The variables in the data set are
+
+- "PV1MATH", "PV2MATH", "PV3MATH", "PV4MATH", "PV5MATH": overall math scores on range 0-1000
+- "PV1READ", "PV2READ", "PV3READ", "PV4READ", "PV5READ": overall reading scores on range 0-1000
+- "PV1SCIE","PV2SCIE","PV3SCIE", "PV4SCIE", "PV5SCIE": overall science scores on range 0-1000
+- "PV1MACC","PV2MACC","PV3MACC","PV4MACC","PV5MACC": Change and relationships
+- "PV1MACQ","PV2MACQ","PV3MACQ","PV4MACQ","PV5MACQ": Quantity
+- "PV1MACS","PV2MACS","PV3MACS","PV4MACS","PV5MACS": Space and shape
+- "PV1MACU","PV2MACU","PV3MACU","PV4MACU","PV5MACU": Uncertainty and data
+- "PV1MAPE","PV2MAPE","PV3MAPE","PV4MAPE","PV5MAPE": Employ 
+- "PV1MAPF","PV2MAPF","PV3MAPF","PV4MAPF","PV5MAPF": Formulate
+- "PV1MAPI","PV2MAPI","PV3MAPI","PV4MAPI","PV5MAPI": Interpret
+
+```{r readdata}
+pisa <- read.csv("PISA-USA.csv", stringsAsFactors=FALSE)
+dim(pisa)
+colnames(pisa)
+pisamath <- pisa[, 1:6]
+```
+
+```{r summaries}
+summary(pisamath)
+library(matrixStats)
+colMeans(pisamath[,-1])
+colSds(as.matrix(pisamath[,-1]))
+var(pisamath[,-1])
+cor(pisamath[,-1])
+```
+
+### Exercise 1 - Focusing on the 5 overall math scores only.
+
+1. What is the sample size, *n*?
+2. What is the dimension of the data, *p*?
+3. Tabulate the means and standard deviations.
+4. Compute and report the correlation matrix.
+5. Summarize in a paragraph what you learn about the US math scores based on the sumamry statistics.
+
+```{r gendersummaries}
+library(dplyr)
+summarize(group_by(pisamath, Gender), 
+          m1=mean(PV1MATH), m2=mean(PV2MATH), m3=mean(PV3MATH), m4=mean(PV4MATH), m5=mean(PV5MATH),
+          s1=sd(PV1MATH), s2=sd(PV2MATH), s3=sd(PV3MATH), s4=sd(PV4MATH), s5=sd(PV5MATH))
+head(pisamath)
+cor(as.matrix(filter(pisamath, Gender == "Female")[,-1]))
+cor(as.matrix(filter(pisamath, Gender == "Male")[,-1]))
+```
+
+### Exercise 2 - Gender in relation to math scores.
+
+1. Compute summary statistics by gender (mean, sd, correlation).
+2. Write a summary comparing and contrasting male and female math scores.
+
+```{r mathreadsci}
+pisa.all <- mutate(pisa, math = apply(cbind(PV1MATH, PV2MATH, PV3MATH, PV4MATH, PV5MATH), 1, mean),
+          read = apply(cbind(PV1READ, PV2READ, PV3READ, PV4READ, PV5READ), 1, mean), 
+          science = apply(cbind(PV1SCIE, PV2SCIE, PV3SCIE, PV4SCIE, PV5SCIE), 1, mean))
+dim(pisa.all)
+pisa.mrs <- select(pisa.all, c(Gender, math:science))
+dim(pisa.mrs)
+summarize(group_by(pisa.mrs, Gender), 
+          mmath=mean(math), mread=mean(read), mscience=mean(science),
+          smath=sd(math), sread=sd(read), sscience=sd(science))
+cor(as.matrix(filter(pisa.mrs, Gender == "Female")[,-1]))
+cor(as.matrix(filter(pisa.mrs, Gender == "Male")[,-1]))
+```
+
+### Exercise 3 - Combining values, and exploring reading and science scores
+
+1. Average the 5 scores for each type of test, to get a single mean for each student (Nothing to report here)
+2. Compute summary statistics by gender
+3. Write a summary comparing and contrasting male and female scores.
+
+```{r math}
+pisa.all <- mutate(pisa, acc = apply(cbind(PV1MACC, PV2MACC, PV3MACC, PV4MACC, PV5MACC), 1, mean),
+          acq = apply(cbind(PV1MACQ, PV2MACQ, PV3MACQ, PV4MACQ, PV5MACQ), 1, mean), 
+          acs = apply(cbind(PV1MACS, PV2MACS, PV3MACS, PV4MACS, PV5MACS), 1, mean),
+          acu = apply(cbind(PV1MACU, PV2MACU, PV3MACU, PV4MACU, PV5MACU), 1, mean),
+          ape = apply(cbind(PV1MAPE, PV2MAPE, PV3MAPE, PV4MAPE, PV5MAPE), 1, mean),
+          apf = apply(cbind(PV1MAPF, PV2MAPF, PV3MAPF, PV4MAPF, PV5MAPF), 1, mean),
+          api = apply(cbind(PV1MAPI, PV2MAPI, PV3MAPI, PV4MAPI, PV5MAPI), 1, mean))
+dim(pisa.all)
+pisa.allmath <- select(pisa.all, c(Gender, acc:api))
+dim(pisa.allmath)
+summary(pisa.allmath)
+pisa.allmath.means <- summarize(group_by(pisa.allmath, Gender), 
+          macc=mean(acc, na.rm=T), macq=mean(acq, na.rm=T), macs=mean(acs, na.rm=T),
+          macu=mean(acu, na.rm=T), mape=mean(ape, na.rm=T), mapf=mean(apf, na.rm=T), mapi=mean(api, na.rm=T),
+          sacc=sd(acc, na.rm=T), sacq=sd(acq, na.rm=T), sacs=sd(acs, na.rm=T), sacu=sd(acu, na.rm=T), 
+          sape=sd(ape, na.rm=T), sapf=sd(apf, na.rm=T), sapi=sd(api, na.rm=T))
+pisa.allmath.means[,1:8]
+pisa.allmath.means[,c(1,9:15)]
+cor(as.matrix(filter(pisa.allmath, Gender == "Female")[,-1]), use="complete.obs")
+cor(as.matrix(filter(pisa.allmath, Gender == "Male")[,-1]), use="complete.obs")
+```
+
+### Exercise 4 - Math scores
+
+1. How many missing values are there? Ho wmany variables have missing values? What proportion of cases are missing on each variable?
+2. Compute summary statistics by gender
+3. Write a summary comparing and contrasting male and female scores.

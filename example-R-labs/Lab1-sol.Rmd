@@ -1,0 +1,106 @@
+Statistics 407 Lab 1
+========================================================
+
+SOLUTION
+===
+
+### Exercise 1:
+
+Write code to do the following:
+
+1. Choose any number and add 2 to it.
+2. Multiply the result by 3.
+3. Subtract 6 from the answer.
+4. Divide what you get by 3.
+
+If your code is correct, you should get the same number that you started with.
+
+```{r}
+a <- 6 + 2
+b <- a * 3
+c <- b - 6
+c / 6
+```
+
+To do this in a sophisticated way, write a function:
+
+```{r}
+algtrick <- function(x = 6) {
+  a <- x + 2
+  b <- a * 3
+  c <- b - 6
+  c / 6
+}
+# Run it, with different values
+algtrick() # Using default
+algtrick(2)
+algtrick(12)
+```
+
+
+```{r, message=FALSE, warnings=F}
+tips <- read.csv("http://www.ggobi.org/book/data/tips.csv")
+dim(tips)
+head(tips)
+summary(tips)
+typeof(tips$obs)
+is.factor(tips$obs)
+typeof(tips$totbill)
+typeof(tips$tip)
+typeof(tips$sex)
+typeof(tips$smoker)
+typeof(tips$day)
+is.factor(tips$day)
+typeof(tips$time)
+typeof(tips$size)
+# Fit a model 
+lm(tip ~ totbill, data=tips)
+# Create a new variable
+tips$rate <- tips$tip / tips$totbill 
+```
+
+### Exercise 2 
+
+- How many cases in the tips data? 244
+- How many variables? Answer could be anything from 7 to 9, depending on how you consider the problem. It would be 7 if you just consider the original variables and don't think of "obs" as a variable. However observation number can be a useful variable, for example, if the data was collected in sequence, like in a manufacturing process, we would need to check for a batch number effect, that values might drift some depending on the order. You would answer 9, if you include the newly created rate variable. 
+
+In general, terminology: "number of variables" means number of columns in the data, "dimension" means number of multivariate variables that we are actually analyzing, "dimensions" means the number of rows and the dimension of the data.
+  
+- What are the types of the variables? (eg, integer, factor, ...)
+
+obs, size: R says these are integer. We would consider them to be quantitative variables taking integer values.
+
+totbill, tip: R says these are double. We would consider them to be quantitative variables.
+
+sex, smoker, day, time: R says these are integer, but considers them to be factors. We would consider them to be categorical variables. 
+
+- What days of the week were data on tips collected? Thus, Fri, Sat, Sun
+
+```{r fig.width=5, fig.height=5}
+# Make some plots
+library(ggplot2)
+#qplot(totbill, tip, data=tips)
+qplot(totbill, tip, data=tips, geom=c("point", "smooth"), method="lm", se=F)
+#qplot(rate, data=tips, geom="histogram")
+#qplot(rate, data=tips, geom="histogram", binwidth=0.1)
+qplot(tip, totbill, data=tips, geom=c("point", "smooth"), method="lm", se=F) + facet_wrap(sex~smoker)
+#qplot(factor(size), rate, data=tips, geom="boxplot")
+tips$day <- factor(tips$day, levels=c("Thu", "Fri", "Sat", "Sun"))
+qplot(day, rate, data=tips, geom="boxplot")
+```
+
+### Exercise 3 
+
+- Describe the relationship between tips and total bill. 
+
+Technical: The relationship is positive, linear and moderate to weak. There is heteroskedasticity - more variation in tips when the bill is high, with variation tending to be more low tips than high tips. 
+
+Practical: More diners tend to tip cheaply than generously. Tip is weakly related to bill, which means that we are mistaken in thinking that people typically give a % of the bill as the tip. The waiter sees a lot of variability.
+
+- How does this relationship change based on gender and smoker?
+
+Smokers tend to be have more variation in the tip relative to bill. Female non-smokers have more tight relationship, except for three low tips. The large bills were mostly paid by males. 
+
+- Make a plot of tip rate by day of the week, and describe what you see.
+
+The rate is pretty similar from one day to the next, in terms of median. The spread may be a little more on the weekend days, with more lower tips. There are a couple of outliers, high tips, that fall on Sunday. 
