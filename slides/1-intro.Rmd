@@ -1,0 +1,93 @@
+---
+title: "Introduction"
+author: "Di Cook"
+date: "March 16, 2015"
+output: 
+  ioslides_presentation:
+    css: styles.css
+    mathjax: local
+    self_contained: false
+---
+
+## What is business analytics?
+
+Business analytics involves using exploring data to obtain new insights and understanding of business performance. It involves exploratory data analysis, visualization and statistical methods.
+
+It may be interpreted more broadly than business intelligence (data mining) which focuses more on metrics for describing and predicting performance.
+
+## Components of business analytics
+
+- Pulling together and cleaning data
+- Exploring and visualizing data
+- Fitting, comparing and assessing models
+- General tools for understanding randomness: resampling, permutation, cross-validation
+- General tools for fitting models: optimization, training and testing
+
+## Pulling data together 1a
+
+Historical exchange rates extracted from [http://www.oanda.com/currency/historical-rates/](http://www.oanda.com/currency/historical-rates/).
+
+```{r xc1}
+xc <- read.csv("../data/exchangerate.csv", stringsAsFactors=FALSE)
+dim(xc)
+head(xc)
+```
+
+## Pulling data together 1b
+
+```{r xc2, message=FALSE}
+xc$Date <- as.Date(paste("1",xc$Date,sep="-"), "%d-%b-%y")
+summary(xc)
+```
+
+## Pulling data together 2a
+
+Historical GDP extracted from [http://www.abs.gov.au/AUSSTATS](http://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/5206.0Dec%202014?OpenDocument).
+
+```{r gdp1, message=FALSE}
+gdp <- read.csv("../data/gdp.csv", stringsAsFactors=FALSE)
+dim(gdp)
+head(gdp)
+```
+
+## Pulling data together 2b
+
+```{r gdp2, message=FALSE}
+gdp$Date <- as.Date(paste("1", gdp$Date,sep="-"), "%d-%b-%Y")
+summary(gdp)
+```
+
+## Merge data 1
+
+```{r xc-gdp1, message=FALSE}
+library(dplyr)
+gdp <- filter(gdp, Date >= min(xc$Date))
+summary(gdp)
+```
+
+## Merge data 2
+
+```{r xc-gdp2, message=FALSE}
+xc.gdp <- left_join(xc, gdp)
+dim(xc.gdp)
+head(xc.gdp)
+```
+
+## Plotting data 1
+
+```{r plotAUD, message=FALSE}
+library(ggplot2)
+qplot(Date, AUD, data=xc.gdp, geom="line")
+```
+
+## Plotting data 1
+
+```{r plotGDP, message=FALSE, warning=FALSE}
+qplot(AUD, GDP.per.capita, data=xc.gdp) + theme(aspect.ratio=1)
+```
+
+## Equations
+
+Equations can be written using latex notation, e.g. 
+
+Variables in data are usually denoted with $X$, and response variables as $Y$. Predicted response variables are $\hat{Y}$. 

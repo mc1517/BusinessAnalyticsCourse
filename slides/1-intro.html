@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Introduction</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="generator" content="pandoc" />
+
+
+
+  <meta name="date" content="2015-03-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <link rel="stylesheet" media="all" href="1-intro_files/ioslides-13.5.1/fonts/fonts.css">
+
+  <link rel="stylesheet" media="all" href="1-intro_files/ioslides-13.5.1/theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="1-intro_files/ioslides-13.5.1/theme/css/phone.css">
+
+  <base target="_blank">
+
+  <script type="text/javascript">
+    var SLIDE_CONFIG = {
+      // Slide settings
+      settings: {
+                title: 'Introduction',
+                        useBuilds: true,
+        usePrettify: true,
+        enableSlideAreas: true,
+        enableTouch: true,
+              },
+
+      // Author information
+      presenters: [
+            {
+        name:  'Di Cook' ,
+        company: '',
+        gplus: '',
+        twitter: '',
+        www: '',
+        github: ''
+      },
+            ]
+    };
+  </script>
+
+  <style type="text/css">
+
+    b, strong {
+      font-weight: bold;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    slides > slide {
+      -webkit-transition: all 0.4s ease-in-out;
+      -moz-transition: all 0.4s ease-in-out;
+      -o-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .auto-fadein {
+      -webkit-transition: opacity 0.6s ease-in;
+      -webkit-transition-delay: 0.4s;
+      -moz-transition: opacity 0.6s ease-in 0.4s;
+      -o-transition: opacity 0.6s ease-in 0.4s;
+      transition: opacity 0.6s ease-in 0.4s;
+      opacity: 0;
+    }
+
+  </style>
+
+  <link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+</head>
+
+<body style="opacity: 0">
+
+<slides>
+
+  <slide class="title-slide segue nobackground">
+        <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+            <p style="margin-top: 6px; margin-left: -2px;">March 16, 2015</p>
+          </hgroup>
+  </slide>
+
+<slide class=''><hgroup><h2>What is business analytics?</h2></hgroup><article  id="what-is-business-analytics">
+
+<p>Business analytics involves using exploring data to obtain new insights and understanding of business performance. It involves exploratory data analysis, visualization and statistical methods.</p>
+
+<p>It may be interpreted more broadly than business intelligence (data mining) which focuses more on metrics for describing and predicting performance.</p>
+
+</article></slide><slide class=''><hgroup><h2>Components of business analytics</h2></hgroup><article  id="components-of-business-analytics">
+
+<ul>
+<li>Pulling together and cleaning data</li>
+<li>Exploring and visualizing data</li>
+<li>Fitting, comparing and assessing models</li>
+<li>General tools for understanding randomness: resampling, permutation, cross-validation</li>
+<li>General tools for fitting models: optimization, training and testing</li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Pulling data together 1a</h2></hgroup><article  id="pulling-data-together-1a">
+
+<p>Historical exchange rates extracted from <a href='http://www.oanda.com/currency/historical-rates/' title=''><a href='http://www.oanda.com/currency/historical-rates/' title=''>http://www.oanda.com/currency/historical-rates/</a></a>.</p>
+
+<pre class = 'prettyprint lang-r'>xc &lt;- read.csv(&quot;../data/exchangerate.csv&quot;, stringsAsFactors=FALSE)
+dim(xc)</pre>
+
+<pre >## [1] 191   5</pre>
+
+<pre class = 'prettyprint lang-r'>head(xc)</pre>
+
+<pre >##     Date   AUD    EUR   CAN   CNY
+## 1 Feb-15 1.283 0.8807 1.252 6.144
+## 2 Jan-15 1.236 0.8575 1.204 6.131
+## 3 Dec-14 1.213 0.8116 1.154 6.129
+## 4 Nov-14 1.154 0.8014 1.131 6.139
+## 5 Oct-14 1.141 0.7891 1.122 6.138
+## 6 Sep-14 1.103 0.7745 1.100 6.150</pre>
+
+</article></slide><slide class=''><hgroup><h2>Pulling data together 1b</h2></hgroup><article  id="pulling-data-together-1b">
+
+<pre class = 'prettyprint lang-r'>xc$Date &lt;- as.Date(paste(&quot;1&quot;,xc$Date,sep=&quot;-&quot;), &quot;%d-%b-%y&quot;)
+summary(xc)</pre>
+
+<pre >##       Date                 AUD             EUR             CAN       
+##  Min.   :1999-04-01   Min.   :0.928   Min.   :0.634   Min.   :0.956  
+##  1st Qu.:2003-03-16   1st Qu.:1.085   1st Qu.:0.740   1st Qu.:1.036  
+##  Median :2007-03-01   Median :1.296   Median :0.783   Median :1.154  
+##  Mean   :2007-03-02   Mean   :1.335   Mean   :0.836   Mean   :1.219  
+##  3rd Qu.:2011-02-15   3rd Qu.:1.528   3rd Qu.:0.924   3rd Qu.:1.448  
+##  Max.   :2015-02-01   Max.   :1.990   Max.   :1.171   Max.   :1.600  
+##       CNY      
+##  Min.   :6.10  
+##  1st Qu.:6.56  
+##  Median :7.73  
+##  Mean   :7.41  
+##  3rd Qu.:8.27  
+##  Max.   :8.28</pre>
+
+</article></slide><slide class=''><hgroup><h2>Pulling data together 2a</h2></hgroup><article  id="pulling-data-together-2a">
+
+<p>Historical GDP extracted from <a href='http://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/5206.0Dec%202014?OpenDocument' title=''><a href='http://www.abs.gov.au/AUSSTATS' title=''>http://www.abs.gov.au/AUSSTATS</a></a>.</p>
+
+<pre class = 'prettyprint lang-r'>gdp &lt;- read.csv(&quot;../data/gdp.csv&quot;, stringsAsFactors=FALSE)
+dim(gdp)</pre>
+
+<pre >## [1] 222   2</pre>
+
+<pre class = 'prettyprint lang-r'>head(gdp)</pre>
+
+<pre >##       Date GDP.per.capita
+## 1 Sep-1963             NA
+## 2 Dec-1963             NA
+## 3 Mar-1964             NA
+## 4 Jun-1964             NA
+## 5 Sep-1964             NA
+## 6 Dec-1964             NA</pre>
+
+</article></slide><slide class=''><hgroup><h2>Pulling data together 2b</h2></hgroup><article  id="pulling-data-together-2b">
+
+<pre class = 'prettyprint lang-r'>gdp$Date &lt;- as.Date(paste(&quot;1&quot;, gdp$Date,sep=&quot;-&quot;), &quot;%d-%b-%Y&quot;)
+summary(gdp)</pre>
+
+<pre >##       Date            GDP.per.capita 
+##  Min.   :1963-09-01   Min.   : 1033  
+##  1st Qu.:1977-06-24   1st Qu.: 3412  
+##  Median :1991-04-16   Median : 6680  
+##  Mean   :1991-04-16   Mean   : 7677  
+##  3rd Qu.:2005-02-06   3rd Qu.:11184  
+##  Max.   :2018-12-01   Max.   :17035  
+##                       NA&#39;s   :56</pre>
+
+</article></slide><slide class=''><hgroup><h2>Merge data 1</h2></hgroup><article  id="merge-data-1">
+
+<pre class = 'prettyprint lang-r'>library(dplyr)
+gdp &lt;- filter(gdp, Date &gt;= min(xc$Date))
+summary(gdp)</pre>
+
+<pre >##       Date            GDP.per.capita 
+##  Min.   :1999-06-01   Min.   : 7036  
+##  1st Qu.:2004-04-16   1st Qu.: 8884  
+##  Median :2009-03-01   Median :11572  
+##  Mean   :2009-03-01   Mean   :11953  
+##  3rd Qu.:2014-01-15   3rd Qu.:14820  
+##  Max.   :2018-12-01   Max.   :17035</pre>
+
+</article></slide><slide class=''><hgroup><h2>Merge data 2</h2></hgroup><article  id="merge-data-2">
+
+<pre class = 'prettyprint lang-r'>xc.gdp &lt;- left_join(xc, gdp)
+dim(xc.gdp)</pre>
+
+<pre >## [1] 191   6</pre>
+
+<pre class = 'prettyprint lang-r'>head(xc.gdp)</pre>
+
+<pre >##         Date   AUD    EUR   CAN   CNY GDP.per.capita
+## 1 2015-02-01 1.283 0.8807 1.252 6.144             NA
+## 2 2015-01-01 1.236 0.8575 1.204 6.131             NA
+## 3 2014-12-01 1.213 0.8116 1.154 6.129          15744
+## 4 2014-11-01 1.154 0.8014 1.131 6.139             NA
+## 5 2014-10-01 1.141 0.7891 1.122 6.138             NA
+## 6 2014-09-01 1.103 0.7745 1.100 6.150          15553</pre>
+
+</article></slide><slide class=''><hgroup><h2>Plotting data 1</h2></hgroup><article  id="plotting-data-1">
+
+<pre class = 'prettyprint lang-r'>library(ggplot2)
+qplot(Date, AUD, data=xc.gdp, geom=&quot;line&quot;)</pre>
+
+<p><img src="1-intro_files/figure-html/plotAUD.png" title="plot of chunk plotAUD" alt="plot of chunk plotAUD" width="720" /></p>
+
+</article></slide><slide class=''><hgroup><h2>Plotting data 1</h2></hgroup><article  id="plotting-data-1-1">
+
+<pre class = 'prettyprint lang-r'>qplot(AUD, GDP.per.capita, data=xc.gdp) + theme(aspect.ratio=1)</pre>
+
+<p><img src="1-intro_files/figure-html/plotGDP.png" title="plot of chunk plotGDP" alt="plot of chunk plotGDP" width="720" /></p>
+
+</article></slide><slide class=''><hgroup><h2>Equations</h2></hgroup><article  id="equations">
+
+<p>Equations can be written using latex notation, e.g.</p>
+
+<p>Variables in data are usually denoted with \(X\), and response variables as \(Y\). Predicted response variables are \(\hat{Y}\).</p></article></slide>
+
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<script src="1-intro_files/ioslides-13.5.1/js/modernizr.custom.45394.js"></script>
+<script src="1-intro_files/ioslides-13.5.1/js/prettify/prettify.js"></script>
+<script src="1-intro_files/ioslides-13.5.1/js/prettify/lang-r.js"></script>
+<script src="1-intro_files/ioslides-13.5.1/js/prettify/lang-yaml.js"></script>
+<script src="1-intro_files/ioslides-13.5.1/js/hammer.js"></script>
+<script src="1-intro_files/ioslides-13.5.1/js/slide-controller.js"></script>
+<script src="1-intro_files/ioslides-13.5.1/js/slide-deck.js"></script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "1-intro_files/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!-- map slide visiblity events into shiny -->
+<script>
+  (function() {
+    if (window.jQuery) {
+       window.jQuery(document).on('slideleave', function(e) {
+         window.jQuery(e.target).trigger('hidden');
+      });
+       window.jQuery(document).on('slideenter', function(e) {
+         window.jQuery(e.target).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
