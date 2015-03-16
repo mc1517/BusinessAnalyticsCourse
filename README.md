@@ -1,3 +1,9 @@
+# Start on slides now available
+
+Use RStudio, create a new project in your git directory (BusinessAnalyticsCourse), and open the slides/1-intro.Rmd. 
+
+On the interface you should see a "knitHTML" button. Click this to compile and preview the slides.
+
 # BusinessAnalyticsCourse
 This is a repository to organize the teaching material for a new course at Monash University, to be jointly taught by Di Cook, Rob Hyndman and Souhaib Ben Taieb.
 
