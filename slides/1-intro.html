@@ -31,6 +31,7 @@
         usePrettify: true,
         enableSlideAreas: true,
         enableTouch: true,
+                favIcon: '1-intro_files/logo.png',
               },
 
       // Author information
@@ -73,6 +74,21 @@
       opacity: 0;
     }
 
+    slides > slide:not(.nobackground):before {
+      font-size: 12pt;
+      content: "";
+      position: absolute;
+      bottom: 20px;
+      left: 60px;
+      background: url(1-intro_files/logo.png) no-repeat 0 50%;
+      -webkit-background-size: 30px 30px;
+      -moz-background-size: 30px 30px;
+      -o-background-size: 30px 30px;
+      background-size: 30px 30px;
+      padding-left: 40px;
+      height: 30px;
+      line-height: 1.9;
+    }
   </style>
 
   <link rel="stylesheet" href="styles.css" type="text/css" />
@@ -82,9 +98,10 @@
 
 <body style="opacity: 0">
 
-<slides>
+<slides class="layout-widescreen">
 
   <slide class="title-slide segue nobackground">
+        <aside class="gdbar"><img src="1-intro_files/logo.png"></aside>
         <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
     <hgroup class="auto-fadein">
       <h1 data-config-title><!-- populated from slide_config.json --></h1>

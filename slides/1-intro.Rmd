@@ -3,11 +3,13 @@ title: 'ETC3250 Business Analytics: Introduction'
 author: "Souhaib Ben Taieb, Di Cook, Rob Hyndman"
 date: "March 16, 2015"
 output:
-  beamer_presentation: default
   ioslides_presentation:
     css: styles.css
+    logo: ../figures/minMASEsep.png
     mathjax: local
     self_contained: no
+    widescreen: yes
+  beamer_presentation: default
 ---
 
 <!--( Clean up adding figures
