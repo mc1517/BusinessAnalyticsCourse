@@ -1,13 +1,21 @@
 ---
-title: "Introduction"
-author: "Di Cook"
+title: 'ETC3250 Business Analytics: Introduction'
+author: "Souhaib Ben Taieb, Di Cook, Rob Hyndman"
 date: "March 16, 2015"
-output: 
+output:
+  beamer_presentation: default
   ioslides_presentation:
     css: styles.css
     mathjax: local
-    self_contained: false
+    self_contained: no
 ---
+
+<!--( Clean up adding figures
+\centering
+![Mining temporal data](../figures/minMASEsep.png)
+\raggedright
+\clearpage
+)--> 
 
 ## What is business analytics?
 
