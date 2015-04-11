@@ -63,18 +63,59 @@ James, Witten, Hastie, Tibshirani, An Introduction to Statistical Learning and A
 ## Tentative agenda
 
 * Week 1
-1. Lecture 1: Introduction, What is Business Analytics? 
-2. Lecture 2: What is Statistical Learning?
-3. Lab 1: 
+  1. Lecture 1: Introduction, What is Business Analytics? What is Statistical Learning? 
+  2. Lecture 2: 
+  3. Lab 1: 
 
-Content: 
-- Statistics? Machine learning? data mining? data science? Analytics? 
-- The four V’s of big data/data science
-- Analytics and data science jobs: “By 2018, the US could face a shortage of up to 190.000 workers with analytical skills” McKinsey
+  Content: 
+    - Statistics? Machine learning? data mining? data science? Analytics? 
+    - The four V’s of big data/data science
+    - Analytics and data science jobs: “By 2018, the US could face a shortage of up to 190.000 workers with analytical skills” McKinsey
 
 * Week 2
+  1. Lecture 3:
+  2. Lecture 4:
+  3. Lab 2:
 
+* Week 3
+  1. Lecture 5:
+  2. Lecture 6:
+  3. Lab 3:
 
+* Week 4
+  1. Lecture 7:
+  2. Lecture 8:
+  3. Lab 4:
+
+* Week 5
+  1. Lecture 9:
+  2. Lecture 10:
+  3. Lab 5:
+
+* Week 6
+  1. Lecture 11:
+  2. Lecture 12:
+  3. Lab 6:
+
+* Week 7
+  1. Lecture 13:
+  2. Lecture 14:
+  3. Lab 7:
+
+* Week 8
+  1. Lecture 15:
+  2. Lecture 16:
+  3. Lab 8:
+
+* Week 9
+  1. Lecture 17:
+  2. Lecture 18:
+  3. Lab 9:
+
+* Week 10
+  1. Lecture 19:
+  2. Lecture 20:
+  3. Lab 10:
 
 ## Software:
 * R 
