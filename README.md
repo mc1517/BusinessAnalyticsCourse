@@ -60,6 +60,22 @@ James, Witten, Hastie, Tibshirani, An Introduction to Statistical Learning and A
 * Unsupervised classification: hierarchical clustering, k-means, self-organizing maps, model-based clustering
 * Cleaning, exploring and visualizing data
 
+## Tentative agenda
+
+* Week 1
+1. Lecture 1: Introduction, What is Business Analytics? 
+2. Lecture 2: What is Statistical Learning?
+3. Lab 1: 
+
+Content: 
+- Statistics? Machine learning? data mining? data science? Analytics? 
+- The four V’s of big data/data science
+- Analytics and data science jobs: “By 2018, the US could face a shortage of up to 190.000 workers with analytical skills” McKinsey
+
+* Week 2
+
+
+
 ## Software:
 * R 
 * Weka
