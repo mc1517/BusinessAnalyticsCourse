@@ -117,6 +117,16 @@ James, Witten, Hastie, Tibshirani, An Introduction to Statistical Learning and A
   2. Lecture 20:
   3. Lab 10:
 
+* Week 11
+  1. Lecture 21:
+  2. Lecture 22:
+  3. Lab 11:
+
+* Week 12
+  1. Lecture 23:
+  2. Lecture 24:
+  3. Lab 12:
+
 ## Software:
 * R 
 * Weka
