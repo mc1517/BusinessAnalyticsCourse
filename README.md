@@ -62,74 +62,74 @@ James, Witten, Hastie, Tibshirani, An Introduction to Statistical Learning and A
 
 ## Tentative agenda
 
-* Week 1
-  1. Lecture 1: Introduction, What is Business Analytics? What is Statistical Learning? 
-  2. Lecture 2: 
-  3. Lab 1: 
+* Week 1. R boot camp (Rob & Souhaib)
+  1. Lecture 1. Introduction to R programming
+  2. Lecture 2. Introduction to R programming
+  3. Lab 1. R exercises
+
+* Week 2. Business Analytics and Statistical Learning. Ch2. (Rob & Souhaib)
+  1. Lecture 3: Introduction, What is Business Analytics? What is Statistical Learning? 
+  2. Lecture 4: Assessing model accuracy. Bias-variance tradeoff
+  3. Lab 2: 
 
   Content: 
     - Statistics? Machine learning? data mining? data science? Analytics? 
     - The four V’s of big data/data science
     - Analytics and data science jobs: “By 2018, the US could face a shortage of up to 190.000 workers with analytical skills” McKinsey
 
-* Week 2
-  1. Lecture 3:
-  2. Lecture 4:
-  3. Lab 2:
-
-* Week 3
-  1. Lecture 5:
-  2. Lecture 6:
+* Week 3. Regression for prediction. Ch3 (Rob)
+  1. Lecture 5: Review of linear regression, matrix formulation
+  2. Lecture 6: Subset selection, LOOCV 
   3. Lab 3:
 
-* Week 4
-  1. Lecture 7:
-  2. Lecture 8:
-  3. Lab 4:
+* Week 4. Resampling. Ch5 (Rob)
+  1. Lecture 7: Cross-validation
+  2. Lecture 8: Bootstrap
+  3. Lab 4: 
 
-* Week 5
-  1. Lecture 9:
-  2. Lecture 10:
+* Week 5. Dimension reduction. Ch6,10. (Rob and Souhaib)
+  1. Lecture 9: PCA
+  2. Lecture 10: PLS
   3. Lab 5:
 
-* Week 6
-  1. Lecture 11:
-  2. Lecture 12:
+* Week 6. Classification. Ch4,8 (Souhaib & Di)
+  1. Lecture 11: LDA
+  2. Lecture 12: Trees
   3. Lab 6:
 
-* Week 7
-  1. Lecture 13:
-  2. Lecture 14:
+* Week 7. Classification. Ch4,9. (Souhaib & Di)
+  1. Lecture 13: k-NN
+  2. Lecture 14: SVM
   3. Lab 7:
 
-* Week 8
-  1. Lecture 15:
+* Week 8. Visualization. Own lecture notes. (Di)
+  1. Lecture 15: Data cleaning
   2. Lecture 16:
   3. Lab 8:
 
-* Week 9
+* Week 9. Visualization. Own lecture notes. (Di)
   1. Lecture 17:
   2. Lecture 18:
   3. Lab 9:
 
-* Week 10
-  1. Lecture 19:
-  2. Lecture 20:
+* Week 10. Advanced classification. Ch8. (Di & Souhaib)
+  1. Lecture 19: Bagging
+  2. Lecture 20: Boosting, random forests
   3. Lab 10:
 
-* Week 11
-  1. Lecture 21:
-  2. Lecture 22:
+* Week 11. Advanced regression. Ch6. (Di & Souhaib)
+  1. Lecture 21: Regularization
+  2. Lecture 22: Shrinkage
   3. Lab 11:
 
-* Week 12
-  1. Lecture 23:
-  2. Lecture 24:
+* Week 12. Clustering. Ch10. (Souhaib & Di)
+  1. Lecture 23: k-means
+  2. Lecture 24: hierarchical clustering
   3. Lab 12:
 
 ## Software:
 * R 
-* Weka
+* Weka ? -- perhaps just mention that software other than R exists. It is too much to get them to learn more than one language in this unit.
       
 ## Approach to teaching R? 
 
