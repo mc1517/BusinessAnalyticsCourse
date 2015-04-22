@@ -63,14 +63,14 @@ James, Witten, Hastie, Tibshirani, An Introduction to Statistical Learning and A
 ## Tentative agenda
 
 * Week 1. Introduction and R boot camp (Rob & Souhaib)
-  Lecture What is Business Analytics? Show case of R.
-  Lab R exercises
-  Lecture Introduction to R programming
+  - Lecture 1:  What is Business Analytics? Show case of R.
+  - Lab 1: R exercises
+  - Lecture 2: Introduction to R programming
 
 * Week 2. Business Analytics and Statistical Learning. Ch2. (Rob & Souhaib)
-  Lecture 3: More on R and statistical learning. 
-  Lab 2: 
-  Lecture 4: Assessing model accuracy. Bias-variance tradeoff
+  - Lecture 3: More on R and statistical learning. 
+  - Lab 2: 
+  - Lecture 4: Assessing model accuracy. Bias-variance tradeoff
 
   Content: 
     - Statistics? Machine learning? data mining? data science? Analytics? 
@@ -78,34 +78,34 @@ James, Witten, Hastie, Tibshirani, An Introduction to Statistical Learning and A
     - Analytics and data science jobs: “By 2018, the US could face a shortage of up to 190.000 workers with analytical skills” McKinsey
 
 * Week 3. Regression for prediction. Ch3 (Rob)
-  Lecture 5: Review of linear regression, matrix formulation
-  Lab 3:
-  Lecture 6: Subset selection, LOOCV 
+  - Lecture 5: Review of linear regression, matrix formulation
+  - Lab 3:
+  - Lecture 6: Subset selection, LOOCV 
 
 * Week 4. Resampling. Ch5 (Rob)
-  Lecture 7: Cross-validation
-  Lab 4: 
-  Lecture 8: Bootstrap
+  - Lecture 7: Cross-validation
+  - Lab 4: 
+  - Lecture 8: Bootstrap
 
 * Week 5. Dimension reduction. Ch6,10. (Rob and Souhaib)
-  Lecture 9: PCA
-  Lab 5:
-  Lecture 10: PLS
+  - Lecture 9: PCA
+  - Lab 5:
+  - Lecture 10: PLS
 
 * Week 6. Classification. Ch4,8 (Souhaib & Di)
-  Lecture 11: LDA
-  Lab 6:
-  Lecture 12: Trees
+  - Lecture 11: LDA
+  - Lab 6:
+  - Lecture 12: Trees
 
 * Week 7. Classification. Ch4,9. (Souhaib & Di)
-  Lecture 13: k-NN
-  Lab 7:
-  Lecture 14: SVM
+  - Lecture 13: k-NN
+  - Lab 7:
+  - Lecture 14: SVM
 
 * Week 8. Visualization. Own lecture notes. (Di)
-  Lecture 15: Data cleaning
-  Lab 8:
-  Lecture 16:
+  - Lecture 15: Data cleaning
+  - Lab 8:
+  - Lecture 16:
 
 * Week 9. Visualization. Own lecture notes. (Di)
   Lecture 17:
@@ -113,19 +113,19 @@ James, Witten, Hastie, Tibshirani, An Introduction to Statistical Learning and A
   Lecture 18:
 
 * Week 10. Advanced classification. Ch8. (Di & Souhaib)
-  Lecture 19: Bagging
-  Lab 10:
-  Lecture 20: Boosting, random forests
+  - Lecture 19: Bagging
+  - Lab 10:
+  - Lecture 20: Boosting, random forests
 
 * Week 11. Advanced regression. Ch6. (Di & Souhaib)
-  Lecture 21: Regularization
-  Lab 11:
-  Lecture 22: Shrinkage
+  - Lecture 21: Regularization
+  - Lab 11:
+  - Lecture 22: Shrinkage
 
 * Week 12. Clustering. Ch10. (Souhaib & Di)
-  Lecture 23: k-means
-  Lab 12:
-  Lecture 24: hierarchical clustering
+  - Lecture 23: k-means
+  - Lab 12:
+  - Lecture 24: hierarchical clustering
 
 ## Software:
 * R 
