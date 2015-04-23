@@ -16,12 +16,12 @@ This is a repository to organize the teaching material for a new course at Monas
 
 ## Tentative agenda
 
-* Week 1. Introduction and R boot camp (Rob & Souhaib)
+* Week 1. (Jul 27) Introduction and R boot camp (Rob & Souhaib)
   - Lecture 1:  What is Business Analytics? Show case of R.
   - Lab 1: R exercises
   - Lecture 2: Introduction to R programming
 
-* Week 2. Business Analytics and Statistical Learning. Ch2. (Rob & Souhaib)
+* Week 2. (Aug 3) Business Analytics and Statistical Learning. Ch2. (Rob & Souhaib)
   - Lecture 3: More on R and statistical learning. 
   - Lab 2: 
   - Lecture 4: Assessing model accuracy. Bias-variance tradeoff
@@ -31,52 +31,52 @@ This is a repository to organize the teaching material for a new course at Monas
     - The four V’s of big data/data science
     - Analytics and data science jobs: “By 2018, the US could face a shortage of up to 190.000 workers with analytical skills” McKinsey
 
-* Week 3. Regression for prediction. Ch3 (Rob)
+* Week 3. (Aug 10) Regression for prediction. Ch3 (Rob)
   - Lecture 5: Review of linear regression, matrix formulation
   - Lab 3:
   - Lecture 6: Subset selection, LOOCV 
 
-* Week 4. Resampling. Ch5 (Rob)
+* Week 4. (Aug 17) Resampling. Ch5 (Rob)
   - Lecture 7: Cross-validation
   - Lab 4: 
   - Lecture 8: Bootstrap
 
-* Week 5. Dimension reduction. Ch6,10. (Rob and Souhaib)
+* Week 5. (Aug 24) Dimension reduction. Ch6,10. (Rob and Souhaib)
   - Lecture 9: PCA
   - Lab 5:
   - Lecture 10: PLS
 
-* Week 6. Classification. Ch4,8 (Souhaib & Di)
+* Week 6. (Aug 31) Classification. Ch4,8 (Souhaib & Di)
   - Lecture 11: LDA
   - Lab 6:
   - Lecture 12: Trees
 
-* Week 7. Classification. Ch4,9. (Souhaib & Di)
+* Week 7. (Sep 7) Classification. Ch4,9. (Souhaib & Di)
   - Lecture 13: k-NN
   - Lab 7:
   - Lecture 14: SVM
 
-* Week 8. Visualization. Own lecture notes. (Di)
+* Week 8. (Sep 14) Visualization. Own lecture notes. (Di)
   - Lecture 15: Data cleaning
   - Lab 8:
   - Lecture 16:
 
-* Week 9. Visualization. Own lecture notes. (Di)
+* Week 9. (Sep 21) Visualization. Own lecture notes. (Di)
   - Lecture 17:
   - Lab 9:
   - Lecture 18:
 
-* Week 10. Advanced classification. Ch8. (Di & Souhaib)
+* Week 10. (Oct 5) Advanced classification. Ch8. (Di & Souhaib)
   - Lecture 19: Bagging
   - Lab 10:
   - Lecture 20: Boosting, random forests
 
-* Week 11. Advanced regression. Ch6. (Di & Souhaib)
+* Week 11. (Oct 12) Advanced regression. Ch6. (Di & Souhaib)
   - Lecture 21: Regularization
   - Lab 11:
   - Lecture 22: Shrinkage
 
-* Week 12. Clustering. Ch10. (Souhaib & Di)
+* Week 12. (Oct 17) Clustering. Ch10. (Souhaib & Di)
   - Lecture 23: k-means
   - Lab 12:
   - Lecture 24: hierarchical clustering
