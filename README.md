@@ -46,22 +46,22 @@ This is a repository to organize the teaching material for a new course at Monas
   - Lab 5:
   - Lecture 10: PLS
 
-* Week 8. (Aug 31) Visualization. Own lecture notes. (Di)
+* Week 6. (Aug 31) Visualization. Own lecture notes. (Di)
   - Lecture 15: Data cleaning
   - Lab 8:
   - Lecture 16:
 
-* Week 9. (Sep 7) Visualization. Own lecture notes. (Di)
+* Week 7. (Sep 7) Visualization. Own lecture notes. (Di)
   - Lecture 17:
   - Lab 9:
   - Lecture 18:
   
-  * Week 6. (Sep 14) Classification. Ch4,8 (Souhaib & Di)
+* Week 8. (Sep 14) Classification. Ch4,8 (Souhaib & Di)
   - Lecture 11: LDA
   - Lab 6:
   - Lecture 12: Trees
 
-* Week 7. (Sep 21) Classification. Ch4,9. (Souhaib & Di)
+* Week 9. (Sep 21) Classification. Ch4,9. (Souhaib & Di)
   - Lecture 13: k-NN
   - Lab 7:
   - Lecture 14: SVM
