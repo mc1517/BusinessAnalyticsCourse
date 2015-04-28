@@ -52,10 +52,9 @@ This is a repository to organize the teaching material for a new course at Monas
   - Lecture 12: Trees
 
 * Week 6. (Sep 7) Visualization. Own lecture notes. (Di)
-  - Lecture 15: Data cleaning
+  - Lecture 15: Basic data plots, categorical/numeric variables, facetting
   - Lab 8:
-  - Lecture 16: Basic data plots, facetting
-
+  - Lecture 16: Data cleaning
 * Week 7. (Sep 14) Visualization. Own lecture notes. (Di)
   - Lecture 17: Plotting geographic data
   - Lab 9:
