@@ -123,13 +123,15 @@ James, Witten, Hastie, Tibshirani, An Introduction to Statistical Learning and A
 
 ## Software:
 * R/RStudio (these packages with all the dependencies)
-  - ggplot2, plyr, dplyr, tidyr, reshape2, GGally, dichromat, magrittr, munsell, RColorBrewer, colorspace
-  - MASS, e1071, caret, randomForest, kohonen, cluster, fpc, mclust, rpart, nnet, mvtnorm, nlme, vegan
-  - lubridate, tm
-  - rmarkdown, knitr, devtools, roxygen2, ggvis
-  - foreign, jsonlite, curl, RCurl, rvest, Rcpp, XML
+  - ggplot2, scales, stringr, plyr, dplyr, tidyr, reshape2, GGally, dichromat, magrittr, munsell, RColorBrewer, colorspace, wordcloud, vcd, gridExtra, hexbin, ggdendro, shiny, ggvis
+  - MASS, e1071, caret, randomForest, kohonen, cluster, fpc, mclust, rpart, nnet, nlme, vegan, penalizedLDA, PPTree, class, FNN, RSNNS, DMwR
+  - mvtnorm, mvnormtest, HH, ICSNP, matrixStats, schoRsch, Matrix, psych
+  - lubridate, tm, tuneR, caTools, maps, ggmap, maptools, shapefiles
+  - rmarkdown, knitr, devtools, roxygen2, profr
+  - gwidgets, RGtk2, MissingDataGUI
+  - foreign, jsonlite, curl, RCurl, rvest, Rcpp, XML, twitteR
   - xtable
-  - PPTree, classifly, clusterfly, meifly
+  - classifly, clusterfly, meifly, LCA, LDAvis
 
 * Weka ? -- perhaps just mention that software other than R exists. It is too much to get them to learn more than one language in this unit.
       
