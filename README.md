@@ -82,7 +82,7 @@ This is a repository to organize the teaching material for a new course at Monas
   
 ## Textbook: 
 
-James, Witten, Hastie, Tibshirani, An Introduction to Statistical Learning and Applications in R, Springer, 2013
+James, Witten, Hastie, Tibshirani, An Introduction to Statistical Learning and Applications in R, Springer, 2013 (pdf available at http://www-bcf.usc.edu/~gareth/ISL/)
           
 ### Additional Reading: 
   
