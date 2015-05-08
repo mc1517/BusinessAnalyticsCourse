@@ -122,7 +122,15 @@ James, Witten, Hastie, Tibshirani, An Introduction to Statistical Learning and A
       .... 
 
 ## Software:
-* R 
+* R/RStudio (these packages with all the dependencies)
+  - ggplot2, plyr, dplyr, tidyr, reshape2, GGally, dichromat, magrittr, munsell, RColorBrewer, colorspace
+  - MASS, e1071, caret, randomForest, kohonen, cluster, fpc, mclust, rpart, nnet, mvtnorm, nlme, vegan
+  - lubridate, tm
+  - rmarkdown, knitr, devtools, roxygen2, ggvis
+  - foreign, jsonlite, curl, RCurl, rvest, Rcpp, XML
+  - xtable
+  - PPTree, classifly, clusterfly, meifly
+
 * Weka ? -- perhaps just mention that software other than R exists. It is too much to get them to learn more than one language in this unit.
       
 ## Approach to teaching R? 
