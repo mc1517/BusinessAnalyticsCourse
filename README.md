@@ -126,7 +126,7 @@ James, Witten, Hastie, Tibshirani, An Introduction to Statistical Learning and A
   - ggplot2, scales, stringr, plyr, dplyr, tidyr, reshape2, GGally, dichromat, magrittr, munsell, RColorBrewer, colorspace, wordcloud, vcd, gridExtra, hexbin, ggdendro, shiny, ggvis
   - MASS, e1071, caret, randomForest, kohonen, cluster, fpc, mclust, rpart, nnet, nlme, vegan, penalizedLDA, PPTree, class, FNN, RSNNS, DMwR
   - mvtnorm, mvnormtest, HH, ICSNP, matrixStats, schoRsch, Matrix, psych
-  - lubridate, tm, tuneR, caTools, maps, ggmap, maptools, shapefiles, sp
+  - lubridate, tm, tuneR, caTools, maps, ggmap, maptools, shapefiles, sp, ggmap, rworldmap
   - rmarkdown, knitr, devtools, roxygen2, profr
   - gwidgets, RGtk2, MissingDataGUI
   - foreign, jsonlite, curl, RCurl, rvest, Rcpp, XML, twitteR
