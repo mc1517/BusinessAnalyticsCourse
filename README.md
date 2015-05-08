@@ -131,7 +131,7 @@ James, Witten, Hastie, Tibshirani, An Introduction to Statistical Learning and A
   - gwidgets, RGtk2, MissingDataGUI
   - foreign, jsonlite, curl, RCurl, rvest, Rcpp, XML, twitteR
   - xtable
-  - classifly, clusterfly, meifly, LCA, LDAvis
+  - classifly, clusterfly, meifly, LCA, LDAvis, nullabor
 
 * Weka ? -- perhaps just mention that software other than R exists. It is too much to get them to learn more than one language in this unit.
       
