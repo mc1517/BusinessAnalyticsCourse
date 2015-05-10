@@ -126,12 +126,13 @@ James, Witten, Hastie, Tibshirani, An Introduction to Statistical Learning and A
   - ggplot2, scales, stringr, plyr, dplyr, tidyr, reshape2, GGally, dichromat, magrittr, munsell, RColorBrewer, colorspace, wordcloud, vcd, gridExtra, hexbin, ggdendro, shiny, ggvis, ggsubplot
   - MASS, e1071, caret, randomForest, kohonen, cluster, fpc, mclust, rpart, nnet, nlme, vegan, penalizedLDA, PPTree, class, FNN, RSNNS, DMwR
   - mvtnorm, mvnormtest, HH, ICSNP, matrixStats, schoRsch, Matrix, psych
-  - lubridate, tm, tuneR, caTools, maps, ggmap, maptools, shapefiles, sp, ggmap, rworldmap
+  - lubridate, tm, tuneR, caTools, maps, ggmap, maptools, shapefiles, sp, rworldmap
   - rmarkdown, knitr, devtools, roxygen2, profr
   - gwidgets, RGtk2, MissingDataGUI
   - foreign, jsonlite, curl, RCurl, rvest, Rcpp, XML, twitteR
   - xtable
   - classifly, clusterfly, meifly, LCA, LDAvis, nullabor
+  - rggobi (requires ggobi software installed on the computer): installation should be easy on Windows machines
 
 * Weka ? -- perhaps just mention that software other than R exists. It is too much to get them to learn more than one language in this unit.
       
