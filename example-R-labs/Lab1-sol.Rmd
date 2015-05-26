@@ -19,7 +19,7 @@ If your code is correct, you should get the same number that you started with.
 a <- 6 + 2
 b <- a * 3
 c <- b - 6
-c / 6
+c / 3
 ```
 
 To do this in a sophisticated way, write a function:
@@ -29,7 +29,7 @@ algtrick <- function(x = 6) {
   a <- x + 2
   b <- a * 3
   c <- b - 6
-  c / 6
+  c / 3
 }
 # Run it, with different values
 algtrick() # Using default
